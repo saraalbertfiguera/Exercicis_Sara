@@ -135,7 +135,7 @@
             try{
                 $daouser = new DAOUser();
                 $rdo = $daouser->select_art($_GET['id']);
-                $user=get_object_vars($rdo);
+                $article=get_object_vars($rdo);
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
                 die('<script>window.location.href="'.$callback .'";</script>');

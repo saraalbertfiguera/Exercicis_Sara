@@ -11,12 +11,14 @@
             $material=$datos['material'];
             $color=$datos['color'];
             $pes=$datos['pes'];
-            foreach ($datos['pais_fabric'] as $indice) {
+            /*foreach ($datos['pais_fabric'] as $indice) {
                 $pais_fabric="$indice";
             }
             foreach ($datos['data_fabric'] as $indice) {
                 $data_fabric="$indice";
-            }
+            }*/
+            $pais_fabric=$datos['pais_fabric'];
+            $data_fabric=$datos['data_fabric'];
             $coment=$datos['observacions']; 
             
 

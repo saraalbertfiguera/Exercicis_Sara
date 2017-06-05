@@ -25,11 +25,11 @@
                     	   	echo '<td width=125>'. $row['nom'] . '</td>';
                     	   	echo '<td width=125>'. $row['familia'] . '</td>';
                     	   	echo '<td width=350>';
-                    	   	echo '<a class="Button_blue" href="index.php?page=controller_user&op=read&id='.$row['article'].'">Read</a>';
+                    	   	echo '<a class="Button_blue" href="index.php?page=controller_user&op=read&id='.$row['ref'].'">Read</a>';
                     	   	echo '&nbsp;';
-                    	   	echo '<a class="Button_green" href="index.php?page=controller_user&op=update&id='.$row['article'].'">Update</a>';
+                    	   	echo '<a class="Button_green" href="index.php?page=controller_user&op=update&id='.$row['ref'].'">Update</a>';
                     	   	echo '&nbsp;';
-                    	   	echo '<a class="Button_red" href="index.php?page=controller_user&op=delete&id='.$row['article'].'">Delete</a>';
+                    	   	echo '<a class="Button_red" href="index.php?page=controller_user&op=delete&id='.$row['ref'].'">Delete</a>';
                     	   	echo '</td>';
                     	   	echo '</tr>';
                         }

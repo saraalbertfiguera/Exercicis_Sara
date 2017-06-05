@@ -17,10 +17,14 @@
                     </span>
                 </font></font></td>
             </tr>
-    
+
+
+
+
+
             <tr>
                 <td>Familia: </td>
-                <td><select multiple size="1" id="familia[]" name="familia[]" placeholder="familia">
+                <td><select id="familia[]" name="familia[]" placeholder="familia">
                     <option value="taules">Taules</option>
                     <option value="seients">Seients</option>
                     <option value="almacenatge">Almacenatge</option>
@@ -57,12 +61,29 @@
             
             <tr>
                 <td>Material: </td>
-                <td><input type="checkbox" id= "material[]" name="material[]" placeholder= "material" value="Pi"/>informatica
+
+<td><input type="text" id="material" name="material" placeholder="material" value=""/></td>
+                <td><font color="red">
+                    <span id="error_material" class="error">
+                        <?php
+                            if(isset($error_nom)){
+                                echo "$error_material";
+                            }else{
+                                echo " ";
+                            }
+                        ?>
+                    </span>
+                </font></font></td>
+
+
+
+
+                <!--<td><input type="checkbox" id= "material[]" name="material[]" placeholder= "material" value="Pi"/>informatica
                     <input type="checkbox" id= "material[]" name="material[]" placeholder= "material" value="Roure"/>alimentacion
                     <input type="checkbox" id= "material[]" name="material[]" placeholder= "material" value="Conglomerat"/>automovil
                     <input type="checkbox" id= "material[]" name="material[]" placeholder= "material" value="Alumini"/>alimentacion
                     <input type="checkbox" id= "material[]" name="material[]" placeholder= "material" value="Ferro"/>alimentacion
-                </td>
+                </td> 
                 <td><font color="red">
                     <span id="error_material" class="error">
                         <?php
@@ -75,7 +96,7 @@
                     </span>
                 </font></font></td>
             </tr>
-
+                    -->
             <tr>
                 <td>Color: </td>
                 <td><input type="text" id="color" name="color" placeholder="color" value=""/></td>

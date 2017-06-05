@@ -11,7 +11,7 @@
             </td>
         </tr>
     
-        <tr> //`nom`, `familia`, `mesures`, `material`, `color`, `pes`, `pais_fabric`, `data_fabric`, `coment
+        <tr> 
 
             <td>Nom: </td>
             <td>

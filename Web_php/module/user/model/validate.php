@@ -18,8 +18,11 @@
     }
 
     function validate_material($texto){
-        $reg="/^[a-zA-Z]*$/";
-        return preg_match($reg,$texto);
+         if(!isset($texto) || empty($texto)){
+            return false;
+        }else{
+            return true;
+        }
     }
     function validate_color($texto){
         $reg="/^[a-zA-Z]*$/";
@@ -117,7 +120,7 @@
             $error_pes = "";
         }
         if(!$r_pais_fabric){
-            $error_edad = " * Has de seleccionar el pais de fabricació";
+            $error_pais_fabric = " * Has de seleccionar el pais de fabricació";
             $check=false;
         }else{
             $error_pais_fabric = "";
@@ -133,6 +136,7 @@
             $check=false;
         }else{
             $error_coment = "";
+        }
         //`nom`, `familia`, `mesures`, `material`, `color`, `pes`, `pais_fabric`, `data_fabric`, `coment
         $error = array(
                             'nom' => $error_nom,
@@ -140,8 +144,8 @@
                             'mesures' => $error_mesures,
                             'material' => $error_material,
                             'color' => $error_color,
-                            'pais_fabric' => $pais_fabric,
-                            'data_fabric' => $data_fabric,
+                            'pais_fabric' => $error_pais_fabric,
+                            'data_fabric' => $error_data_fabric,
                             'coment' => $error_coment,
                            
                         );
