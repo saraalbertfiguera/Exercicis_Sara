@@ -1,22 +1,10 @@
-function validate_nom(texto){
+function validate_usuario(texto){
     if (texto.length > 0){
         var reg=/^[a-zA-Z]*$/;
         return reg.test(texto);
     }
     return false;
 }
-
-
-                            'nom' => '',
-                            'familia' => '',
-                            'mesures' => '',
-                            'material' => '',
-                            'color' => '',
-                            'pes' => '',
-                            'pais_fabric' => '',
-                            'data_fabric' =>'',
-                            'coment' => ''
-
 
 function validate_password(texto){
     if (texto.length > 0){

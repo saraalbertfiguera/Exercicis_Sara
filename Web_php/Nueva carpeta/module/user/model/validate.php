@@ -18,11 +18,8 @@
     }
 
     function validate_material($texto){
-         if(!isset($texto) || empty($texto)){
-            return false;
-        }else{
-            return true;
-        }
+        $reg="/^[a-zA-Z]*$/";
+        return preg_match($reg,$texto);
     }
     function validate_color($texto){
         $reg="/^[a-zA-Z]*$/";
@@ -42,7 +39,7 @@
     }    
     
     function validate_data_fabric($texto){
-        if(empty($texto)){
+        if(!isset($texto) || empty($texto)){
             return false;
         }else{
             return true;
@@ -50,11 +47,8 @@
     }
     
     function validate_coment($texto){
-        if(empty($texto)){
-            return false;
-        }else{
-            return true;
-        }
+        $reg="/^[a-zA-Z]*$/";
+        return preg_match($reg,$texto);
     }
     
     function validate(){
@@ -120,7 +114,7 @@
             $error_pes = "";
         }
         if(!$r_pais_fabric){
-            $error_pais_fabric = " * Has de seleccionar el pais de fabricació";
+            $error_edad = " * Has de seleccionar el pais de fabricació";
             $check=false;
         }else{
             $error_pais_fabric = "";
@@ -131,22 +125,25 @@
         }else{
             $error_data_fabric = "";
         }
-        if(!$r_coment !==1){
+        if(!$r_coment){
             $error_coment = " * Has d'introduir la descripció del article";
             $check=false;
         }else{
+            
             $error_coment = "";
         }
         //`nom`, `familia`, `mesures`, `material`, `color`, `pes`, `pais_fabric`, `data_fabric`, `coment
         $error = array(
+
                             'nom' => $error_nom,
                             'familia' => $error_familia,
                             'mesures' => $error_mesures,
                             'material' => $error_material,
                             'color' => $error_color,
+                            'pes' => $error_pes,
                             'pais_fabric' => $error_pais_fabric,
                             'data_fabric' => $error_data_fabric,
-                            'coment' => $error_coment,
+                            'coment' => $error_coment
                            
                         );
         $resultado=array('resultado'=>$check , 'error'=>$error);
