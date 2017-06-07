@@ -7,12 +7,15 @@
             try{
                 $daouser = new DAOUser();
                 $rdo = $daouser->select_all_user();
+
             }catch (Exception $e){
+
                 $callback = 'index.php?page=503';
                 die('<script>window.location.href="'.$callback .'";</script>');
             }
-            
+             
             if(!$rdo){
+
                 $callback = 'index.php?page=503';
                 die('<script>window.location.href="'.$callback .'";</script>');
             }else{
@@ -88,6 +91,8 @@
                         $daouser = new DAOUser();
                         $rdo = $daouser->update_user($_POST);
                     }catch (Exception $e){
+
+                    
                         $callback = 'index.php?page=503';
                         die('<script>window.location.href="'.$callback .'";</script>');
                     }
@@ -97,11 +102,13 @@
                         $callback = 'index.php?page=controller_user&op=list';
                         die('<script>window.location.href="'.$callback .'";</script>');
                     }else{
+                      
                         $callback = 'index.php?page=503';
                         die('<script>window.location.href="'.$callback .'";</script>');
                     }
                 }
                 else {
+                     
                     $error = $result['error'];
                     $_SESSION['articles']=$_POST;
                     $_GET['id']=$_POST['nom'];

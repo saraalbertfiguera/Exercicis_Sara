@@ -16,6 +16,8 @@
         	$sql = " INSERT INTO articles (nom, familia, mesures, material, color, pes, pais_fabric, data_fabric, descripcio)"
                 . " VALUES ('$nom', '$familia', '$mesures', '$material', '$color', '$pes', '$pais_fabric', '$data_fabric', '$descripcio')";
             
+               
+
             $conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
             connect::close($conexion);
@@ -55,6 +57,7 @@
             $data_fabric=$datos['data_fabric'];
             $descripcio=$datos['descripcio'];
         	
+            
 
         	$sql = "UPDATE articles SET nom='$nom', familia='$familia', mesures='$mesures', material='$material', color='$color'," 
             . " pes='$pes',pais_fabric='$pais_fabric',data_fabric='$data_fabric',descripcio='$descripcio' WHERE nom='$nom'";

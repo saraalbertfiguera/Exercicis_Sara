@@ -1,22 +1,22 @@
 <div id="contenido">
     <div class="container">
     	<div class="row">
-    			<h3>LISTA DE USUARIOS</h3>
+    			<h1>Llista d'articles</h1>
     	</div>
     	<div class="row">
     		<p><a href="index.php?page=controller_user&op=create"><img src="view/img/anadir.png"></a></p>
     		
     		<table>
                 <tr>
-                    <td width=125><b>Referencia</b></th>
+                    <td width=125><b>Referència</b></th>
                     <td width=125><b>Nom</b></th>
                    
-                    <th width=350><b>Accion</b></th>
+                    
                 </tr>
                 <?php
                     if ($rdo->num_rows === 0){
                         echo '<tr>';
-                        echo '<td align="center"  colspan="3">NO HAY NINGUN USUARIO</td>';
+                        echo '<td align="center"  colspan="3">No hi ha cap article</td>';
                         echo '</tr>';
                     }else{
                         foreach ($rdo as $row) {

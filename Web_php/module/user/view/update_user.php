@@ -1,21 +1,22 @@
 
 <div id="contenido">
     <form autocomplete="on" method="post" name="update_user" id="update_user" onsubmit="return validate();" action="index.php?page=controller_user&op=update">
-        <h1>Nuevo artículo</h1>
+        <h1>Modificar article</h1>
         <table border='0'>
             <tr>
                 <td>Nom: </td>
-                <td><input type="text" id="nom" name="nom" placeholder="nom" value="<?php echo $articles['nom'];?>"/></td>
+                <td><input type="text" id="nom" name="nom" placeholder="nom" value="<?php echo $articles['nom'];?>" readonly/></td>
                 <td><font color="red">
                     <span id="error_nom" class="error">
                         <?php
-                            echo $error['nom']
+                            echo $error['nom'] 
                         ?>
                     </span>
                 </font></font></td>
+
             </tr>
 
-
+           
 
             <td>Familia: </td>
                 <td>

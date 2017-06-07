@@ -1,7 +1,7 @@
 
 <div id="contenido">
     <form autocomplete="on" method="post" name="alta_user" id="alta_user" onsubmit="return validate();" action="index.php?page=controller_user&op=create">
-        <h1>Nuevo artículo</h1>
+        <h1>Nou article</h1>
         <table border='0'>
             <tr>
                 <td>Nom: </td>
@@ -89,7 +89,7 @@
             <tr>
 
              <tr>
-                <td>Pais_fabric: </td>
+                <td>Pais de fabricació: </td>
                 <td><select id="pais_fabric" name="pais_fabric" placeholder="pais_fabric">
                     <option value="España">España</option>
                     <option value="Portugal">Portugal</option>
@@ -106,7 +106,7 @@
             </tr>
             
             <tr>
-                <td>Data_fabric: </td>
+                <td>Data de fabricació:  </td>
                 <td><input id="fecha"  name="data_fabric" placeholder="data_fabric" value=""/></td>
                 <td><font color="red">
                     <span id="error_data_fabric" class="error">
@@ -131,7 +131,7 @@
             
             <tr>
                 <td><input type="submit" name="create" id="create"/></td>
-                <td align="right"><a href="index.php?page=controller_user&op=list">Volver</a></td>
+                <td align="right"><a href="index.php?page=controller_user&op=list">Torna</a></td>
             </tr>
         </table>
     </form>

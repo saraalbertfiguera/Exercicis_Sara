@@ -1,12 +1,14 @@
 <div id="contenido">
     <h1>Informació de l'article</h1>
     <p>
-    <table border='2'>
+    <table border='0'>
         <tr>
-            <td>Article: </td>
+            <td>Referència: </td>
             <td>
+
                 <?php
                     echo $articles['ref'];
+
                 ?>
             </td>
         </tr>
@@ -17,6 +19,15 @@
             <td>
                 <?php
                     echo $articles['nom'];
+                ?>
+            </td>
+        </tr>
+                <tr> 
+
+            <td>Familia: </td>
+            <td>
+                <?php
+                    echo $articles['familia'];
                 ?>
             </td>
         </tr>
@@ -58,7 +69,7 @@
         </tr>
         
         <tr>
-            <td>Pais de fabricació: </td>
+            <td>Pais de fabricació:    </td>
             <td>
                 <?php
                     echo $articles['pais_fabric'];
@@ -68,7 +79,7 @@
         </tr>
         
         <tr>
-            <td>Data de fabricació: </td>
+            <td>Data de fabricació:     </td>
             <td>
                 <?php
                     echo $articles['data_fabric'];
