@@ -107,7 +107,7 @@
             
             <tr>
                 <td>Data_fabric: </td>
-                <td><input type="text"  id="data_fabric"  name="data_fabric" placeholder="data_fabric" value=""/></td>
+                <td><input id="fecha"  name="data_fabric" placeholder="data_fabric" value=""/></td>
                 <td><font color="red">
                     <span id="error_data_fabric" class="error">
                         <?php
@@ -119,11 +119,11 @@
             
             <tr>
                 <td>Observacions: </td>
-                <td><textarea cols="30" rows="5" id="coment" name="coment" placeholder="coment" value=""></textarea></td>
+                <td><textarea cols="30" rows="5" id="descripcio" name="descripcio" placeholder="descripcio" value=""></textarea></td>
                 <td><font color="red">
-                    <span id="error_coment" class="error">
+                    <span id="error_descripcio" class="error">
                         <?php
-                            echo $error['coment']
+                            echo $error['descripcio']
                         ?>
                     </span>
                 </font></font></td>

@@ -4,16 +4,17 @@
 	class DAOUser{ 
         function insert_user($datos){
             $nom=$datos['nom'];
+            $familia=$datos['familia'];
             $mesures=$datos['mesures'];
             $material=$datos['material'];
             $color=$datos['color'];
             $pes=$datos['pes'];
             $pais_fabric=$datos['pais_fabric'];
             $data_fabric=$datos['data_fabric'];
-            $coment=$datos['observacions'];
+            $descripcio=$datos['descripcio'];
 
-        	$sql = " INSERT INTO articles (nom, familia, mesures, material, color, pes, pais_fabric, data_fabric, coment)"
-                . " VALUES ('$nom', '$familia', '$mesures', '$material', '$color', '$pes', '$pais_fabric', '$data_fabric', '$coment')";
+        	$sql = " INSERT INTO articles (nom, familia, mesures, material, color, pes, pais_fabric, data_fabric, descripcio)"
+                . " VALUES ('$nom', '$familia', '$mesures', '$material', '$color', '$pes', '$pais_fabric', '$data_fabric', '$descripcio')";
             
             $conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
@@ -40,24 +41,24 @@
 		}
 		
 		function update_user($datos){
-			$user=$datos['usuario'];
-        	$passwd=$datos['pass'];
-        	$name=$datos['nombre'];
-        	$dni=$datos['DNI'];
-        	$sex=$datos['sexo'];
-        	$birthdate=$datos['fecha_nacimiento'];
-        	$age=$datos['edad'];
-        	$country=$datos['pais'];
-        	foreach ($datos['idioma'] as $indice) {
-        	    $language="$indice";
-        	}
-        	$comment=$datos['observaciones'];
-        	foreach ($datos['aficion'] as $indice) {
-        	    $hobby="s$indice:";
-        	}
+
+            $nom=$datos['nom'];
+            $familia=$datos['familia'];
+            $mesures=$datos['mesures'];
+            //$material=$datos['material'];
+            foreach ($datos['material'] as $indice) {
+                $material="$indice:";
+            }
+            $color=$datos['color'];
+            $pes=$datos['pes'];
+            $pais_fabric=$datos['pais_fabric'];
+            $data_fabric=$datos['data_fabric'];
+            $descripcio=$datos['descripcio'];
         	
-        	$sql = " UPDATE usuario SET pass='$passwd', name='$name', dni='$dni', sex='$sex', birthdate='$birthdate', age='$age',"
-        		. " country='$country', language='$language', comment='$comment', hobby='$hobby' WHERE user='$user'";
+
+        	$sql = "UPDATE articles SET nom='$nom', familia='$familia', mesures='$mesures', material='$material', color='$color'," 
+            . " pes='$pes',pais_fabric='$pais_fabric',data_fabric='$data_fabric',descripcio='$descripcio' WHERE nom='$nom'";
+        		
             
             $conexion = connect::con();
             $res = mysqli_query($conexion, $sql);

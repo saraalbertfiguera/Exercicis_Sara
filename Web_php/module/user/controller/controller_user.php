@@ -33,13 +33,13 @@
                             'pes' => '',
                             'pais_fabric' => '',
                             'data_fabric' =>'',
-                            'coment' => ''
+                            'descripcio' => ''
                     );
             if (isset($_POST['create'])){
                 $result=validate();
                 //if ($check){
                 if ($result['resultado']) {
-                    $_SESSION['user']=$_POST;
+                    $_SESSION['articles']=$_POST;
                     try{
                         $daouser = new DAOUser();
                         $rdo = $daouser->insert_user($_POST);
@@ -77,13 +77,13 @@
                             'pes' => '',
                             'pais_fabric' => '',
                             'data_fabric' =>'',
-                            'coment' => ''
+                            'descripcio' => ''
                     );
             if (isset($_POST['update'])){
                 $result=validate();
                 //if ($check){
                 if ($result['resultado']) {
-                    $_SESSION['user']=$_POST;
+                    $_SESSION['articles']=$_POST;
                     try{
                         $daouser = new DAOUser();
                         $rdo = $daouser->update_user($_POST);
@@ -103,8 +103,8 @@
                 }
                 else {
                     $error = $result['error'];
-                    $_SESSION['user']=$_POST;
-                    $_GET['id']=$_POST['usuario'];
+                    $_SESSION['articles']=$_POST;
+                    $_GET['id']=$_POST['nom'];
                 }
             }
 
@@ -114,7 +114,7 @@
                 $daouser = new DAOUser();
                 print_r($_GET['id']);
                 $rdo = $daouser->select_user($_GET['id']);
-                $user=get_object_vars($rdo);
+                $articles=get_object_vars($rdo);
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
                 die('<script>window.location.href="'.$callback .'";</script>');
@@ -134,7 +134,7 @@
             try{
                 $daouser = new DAOUser();
                 $rdo = $daouser->select_user($_GET['id']);
-                $user=get_object_vars($rdo);
+                $articles=get_object_vars($rdo);
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
                 die('<script>window.location.href="'.$callback .'";</script>');

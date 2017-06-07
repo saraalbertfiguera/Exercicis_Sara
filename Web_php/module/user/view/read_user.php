@@ -6,7 +6,7 @@
             <td>Article: </td>
             <td>
                 <?php
-                    echo $user['ref'];
+                    echo $articles['ref'];
                 ?>
             </td>
         </tr>
@@ -16,7 +16,7 @@
             <td>Nom: </td>
             <td>
                 <?php
-                    echo $user['nom'];
+                    echo $articles['nom'];
                 ?>
             </td>
         </tr>
@@ -25,7 +25,7 @@
             <td>Mesures: </td>
             <td>
                 <?php
-                    echo $user['mesures'];
+                    echo $articles['mesures'];
                 ?>
             </td>
         </tr>
@@ -34,7 +34,7 @@
             <td>Material: </td>
             <td>
                 <?php
-                    echo $user['material'];
+                    echo $articles['material'];
                 ?>
             </td>
         </tr>
@@ -43,7 +43,7 @@
             <td>Color: </td>
             <td>
                 <?php
-                    echo $user['color'];
+                    echo $articles['color'];
                 ?>
             </td>
         </tr>
@@ -52,7 +52,7 @@
             <td>Pes: </td>
             <td>
                 <?php
-                    echo $user['pes'];
+                    echo $articles['pes'];
                 ?>
             </td>
         </tr>
@@ -61,7 +61,7 @@
             <td>Pais de fabricació: </td>
             <td>
                 <?php
-                    echo $user['pais_fabric'];
+                    echo $articles['pais_fabric'];
                 ?>
             </td>
             
@@ -71,16 +71,16 @@
             <td>Data de fabricació: </td>
             <td>
                 <?php
-                    echo $user['data_fabric'];
+                    echo $articles['data_fabric'];
                 ?>
             </td>
         </tr>
         
         <tr>
-            <td>Observacions: </td>
+            <td>Descripció: </td>
             <td>
                 <?php
-                    echo $user['coment'];
+                    echo $articles['descripcio'];
                 ?>
             </td>
         </tr>

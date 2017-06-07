@@ -18,8 +18,11 @@
     }
 
     function validate_material($texto){
-        $reg="/^[a-zA-Z]*$/";
-        return preg_match($reg,$texto);
+        if(!isset($texto) || empty($texto)){
+            return false;
+        }else{
+            return true;
+        }
     }
     function validate_color($texto){
         $reg="/^[a-zA-Z]*$/";
@@ -46,7 +49,7 @@
         }
     }
     
-    function validate_coment($texto){
+    function validate_descripcio($texto){
         $reg="/^[a-zA-Z]*$/";
         return preg_match($reg,$texto);
     }
@@ -64,7 +67,7 @@
         $v_pes=$_POST['pes'];
         $v_pais_fabric=$_POST['pais_fabric'];
         $v_data_fabric=$_POST['data_fabric'];
-        $v_coment=$_POST['coment'];
+        $v_descripcio=$_POST['descripcio'];
        
         
         $r_nom=validate_nom($v_nom);
@@ -75,7 +78,7 @@
         $r_pes=validate_pes($v_pes);
         $r_pais_fabric=validate_pais_fabric($v_pais_fabric);
         $r_data_fabric=validate_data_fabric($v_data_fabric);
-        $r_coment=validate_coment($v_coment);
+        $r_descripcio=validate_descripcio($v_descripcio);
         
         if($r_nom !== 1){
             $error_nom = " * Has d'introduir el nom de l'article";
@@ -95,7 +98,7 @@
         }else{
             $error_mesures = "";
         }
-        if($r_material !== 1){
+        if(!$r_material){
             $error_material = " * Has d'introduir el material de l'article";
             $check=false;
         }else{
@@ -125,14 +128,14 @@
         }else{
             $error_data_fabric = "";
         }
-        if(!$r_coment){
-            $error_coment = " * Has d'introduir la descripció del article";
+        if(!$r_descripcio){
+            $error_descripcio = " * Has d'introduir la descripció del article";
             $check=false;
         }else{
             
-            $error_coment = "";
+            $error_descripcio = "";
         }
-        //`nom`, `familia`, `mesures`, `material`, `color`, `pes`, `pais_fabric`, `data_fabric`, `coment
+        //`nom`, `familia`, `mesures`, `material`, `color`, `pes`, `pais_fabric`, `data_fabric`, `descripcio
         $error = array(
 
                             'nom' => $error_nom,
@@ -143,7 +146,7 @@
                             'pes' => $error_pes,
                             'pais_fabric' => $error_pais_fabric,
                             'data_fabric' => $error_data_fabric,
-                            'coment' => $error_coment
+                            'descripcio' => $error_descripcio
                            
                         );
         $resultado=array('resultado'=>$check , 'error'=>$error);

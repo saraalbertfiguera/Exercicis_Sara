@@ -33,17 +33,17 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `nom` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `familia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `mesures` varchar(7) COLLATE utf8_spanish_ci NOT NULL,
-  `material` varchar(9) COLLATE utf8_spanish_ci NOT NULL,
+  `material` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
   `color` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `pes` INT(5) COLLATE utf8_spanish_ci NOT NULL,
   `pais_fabric` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `data_fabric` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
-  `coment` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `descripcio` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
  
   PRIMARY KEY (`ref`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-INSERT INTO `articles` (`nom`, `familia`, `mesures`, `material`, `color`, `pes`, `pais_fabric`, `data_fabric`,`coment`) VALUES
+INSERT INTO `articles` (`nom`, `familia`, `mesures`, `material`, `color`, `pes`, `pais_fabric`, `data_fabric`,`descripcio`) VALUES
 ('Kallak', 'Armaris', '210x90', 'Pi:Alumini', 'Blanc:Gris', 120, 'Portugal', '12/09/2016','nsiufh dfiuhdf asidufb'),
 ('Morduf', 'Taules', '40x110', 'Roure:', 'Natural:', 15, 'Italia', '02/02/2017','hfnsbfu dfiuas dfiusdf');
 

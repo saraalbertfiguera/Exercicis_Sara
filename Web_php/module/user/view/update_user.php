@@ -1,11 +1,11 @@
 
 <div id="contenido">
-    <form autocomplete="on" method="post" name="alta_user" id="alta_user" onsubmit="return validate();" action="index.php?page=controller_user&op=create">
+    <form autocomplete="on" method="post" name="update_user" id="update_user" onsubmit="return validate();" action="index.php?page=controller_user&op=update">
         <h1>Nuevo artículo</h1>
         <table border='0'>
             <tr>
                 <td>Nom: </td>
-                <td><input type="text" id="nom" name="nom" placeholder="nom" value="<?php echo $user['nom'];?>"/></td>
+                <td><input type="text" id="nom" name="nom" placeholder="nom" value="<?php echo $articles['nom'];?>"/></td>
                 <td><font color="red">
                     <span id="error_nom" class="error">
                         <?php
@@ -20,21 +20,21 @@
             <td>Familia: </td>
                 <td>
                     <?php
-                        if ($user['familia']==="Taules"){
+                        if ($articles['familia']==="Taules"){
                     ?>
                         <input type="radio" id="familia" name="familia" placeholder="familia" value="Taules" checked/>Taules
                         <input type="radio" id="familia" name="familia" placeholder="familia" value="Seients"/>Seients
                         <input type="radio" id="familia" name="familia" placeholder="familia" value="Almacenatge" checked/>Almacenatge
                         <input type="radio" id="familia" name="familia" placeholder="familia" value="Solucions multimèdia"/>Solucions multimèdia
                     <?php    
-                        }elseif ($user['familia']==="Seients"){
+                        }elseif ($articles['familia']==="Seients"){
                     ?>
                         <input type="radio" id="familia" name="familia" placeholder="familia" value="Taules" checked/>Taules
                         <input type="radio" id="familia" name="familia" placeholder="familia" value="Seients"/>Seients
                         <input type="radio" id="familia" name="familia" placeholder="familia" value="Almacenatge" checked/>Almacenatge
                         <input type="radio" id="familia" name="familia" placeholder="familia" value="Solucions multimèdia"/>Solucions multimèdia
                     <?php   
-                        }elseif ($user['familia']==="Almacenatge"){
+                        }elseif ($articles['familia']==="Almacenatge"){
                     ?>
                         <input type="radio" id="familia" name="familia" placeholder="familia" value="Taules" checked/>Taules
                         <input type="radio" id="familia" name="familia" placeholder="familia" value="Seients"/>Seients
@@ -51,6 +51,7 @@
                         }
                     ?>
                 </td>
+
                 <td><font color="red">
                     <span id="error_familia" class="error">
                         <?php
@@ -63,7 +64,7 @@
 
             <tr>
                 <td>Mesures: </td>
-                <td><input type="text" id= "mesures" name="mesures" placeholder="mesures" value="<?php echo $user['mesures'];?>"/></td>
+                <td><input type="text" id= "mesures" name="mesures" placeholder="mesures" value="<?php echo $articles['mesures'];?>"/></td>
                 <td><font color="red">
                     <span id="error_mesures" class="error">
                         <?php
@@ -73,13 +74,73 @@
                 </font></font></td>
             </tr>
             
-            <tr>
-                <td>Material: </td>
-                <td><input type="checkbox" id= "material" name="material" placeholder= "material" value="Pi"/>Pi
-                    <input type="checkbox" id= "material" name="material" placeholder= "material" value="Roure"/>Roure
-                    <input type="checkbox" id= "material" name="material" placeholder= "material" value="Conglomerat"/>Conglomerat
-                    <input type="checkbox" id= "material" name="material" placeholder= "material" value="Alumini"/>Alumini
-                    <input type="checkbox" id= "material" name="material" placeholder= "material" value="Ferro"/>Ferro
+        
+
+             <td>Material: </td>
+                <?php
+                    $material=explode(":", $articles['material']);
+                ?>
+                <td>
+                    <?php
+                        $busca_array=in_array("Pi", $material);
+                        if($busca_array){
+                    ?>
+                        <input type="checkbox" id= "material[]" name="material[]" value="Pi" checked/>Pi
+                    <?php
+                        }else{
+                    ?>
+                        <input type="checkbox" id= "material[]" name="material[]" value="Pi"/>Pi
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        $busca_array=in_array("roure", $material);
+                        if($busca_array){
+                    ?>
+                        <input type="checkbox" id= "material[]" name="material[]" value="Roure" checked/>Roure
+                    <?php
+                        }else{
+                    ?>
+                        <input type="checkbox" id= "material[]" name="material[]" value="Roure"/>Roure
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        $busca_array=in_array("conglomerat", $material);
+                        if($busca_array){
+                    ?>
+                        <input type="checkbox" id= "material[]" name="material[]" value="Conglomerat" checked/>Conglomerat
+                    <?php
+                        }else{
+                    ?>
+                    <input type="checkbox" id= "material[]" name="material[]" value="Conglomerat"/>Conglomerat
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        $busca_array=in_array("alumini", $material);
+                        if($busca_array){
+                    ?>
+                        <input type="checkbox" id= "material[]" name="material[]" value="Alumini" checked/>Alumini
+                    <?php
+                        }else{
+                    ?>
+                    <input type="checkbox" id= "material[]" name="material[]" value="Alumini"/>Alumini
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        $busca_array=in_array("ferro", $material);
+                        if($busca_array){
+                    ?>
+                        <input type="checkbox" id= "material[]" name="material[]" value="Ferro" checked/>Ferro</td>
+                    <?php
+                        }else{
+                    ?>
+                    <input type="checkbox" id= "material[]" name="material[]" value="Ferro"/>Ferro</td>
+                    <?php
+                        }
+                    ?>
                 </td>
                 <td><font color="red">
                     <span id="error_material" class="error">
@@ -90,9 +151,15 @@
                 </font></font></td>
             </tr>
 
+
+
+
+
+
+
             <tr>
                 <td>Color: </td>
-                <td><input type="text" id="color" name="color" placeholder="color" value=="<?php echo $user['color'];?>"/></td>
+                <td><input type="text" id="color" name="color" placeholder="color" value="<?php echo $articles['color'];?>"/></td>
                 <td><font color="red">
                     <span id="error_color" class="error">
                         <?php
@@ -105,7 +172,7 @@
             <tr>
                  <tr>
                 <td>Pes: </td>
-                <td><input type="text" id="pes" name="pes" placeholder="pes" value="<?php echo $user['pes'];?>"/></td>
+                <td><input type="text" id="pes" name="pes" placeholder="pes" value="<?php echo $articles['pes'];?>"/></td>
                 <td><font color="red">
                     <span id="error_pes" class="error">
                         <?php
@@ -125,21 +192,21 @@
                 <td>Pais de fabricació: </td>
                 <td><select id="pais_fabric" name="pais_fabric" placeholder="pais_fabric">
                     <?php
-                        if($user['pais_fabric']==="Espanya"){
+                        if($articles['pais_fabric']==="Espanya"){
                     ?>
                         <option value="espanya">Espanya</option>
                         <option value="portugal">Portugal</option>
                         <option value="frança">França</option>
                         <option value="italia">Itàlia</option>
                     <?php
-                        }elseif($user['pais_fabric']==="Portugal"){
+                        }elseif($articles['pais_fabric']==="Portugal"){
                     ?>
                         <option value="espanya">Espanya</option>
                         <option value="portugal">Portugal</option>
                         <option value="frança">França</option>
                         <option value="italia">Itàlia</option>
                     <?php
-                        }elseif($user['familia']==="França"){
+                        }elseif($articles['familia']==="França"){
                     ?>
                         <option value="espanya">Espanya</option>
                         <option value="portugal">Portugal</option>
@@ -165,31 +232,10 @@
                 </font></font></td>
             </tr>
 
-
-
-
-
-
-             <tr>
-                <td>Pais_fabric: </td>
-                <td><select id="pais_fabric" name="pais_fabric" placeholder="pais_fabric">
-                    <option value="España">España</option>
-                    <option value="Portugal">Portugal</option>
-                    <option value="França">Francia</option>
-                    <option value="Italia">Francia</option>
-                    </select></td>
-                <td><font color="red">
-                    <span id="error_pais_fabric" class="error">
-                        <?php
-                          echo $error['pais_fabric']
-                        ?>
-                    </span>
-                </font></font></td>
-            </tr>
             
             <tr>
-                <td>Data_fabric: </td>
-                <td><input type="text"  id="data_fabric"  name="data_fabric" placeholder="data_fabric" value="<?php echo $user['data_fabric'];?>"/></td>
+                <td>Data de fabricació: </td>
+                <td><input id="fecha"  name="data_fabric" placeholder="data_fabric" value="<?php echo $articles['data_fabric'];?>"/></td>
                 <td><font color="red">
                     <span id="error_data_fabric" class="error">
                         <?php
@@ -200,20 +246,20 @@
             </tr>
             
             <tr>
-                <td>Observacions: </td>
-                <td><textarea cols="30" rows="5" id="coment" name="coment" placeholder="coment" value=""></textarea></td>
+                <td>Descripció: </td>
+                <td><textarea cols="30" rows="5" id="descripcio" name="descripcio" placeholder="descripcio" value="<?php echo $articles['descripcio'];?>"></textarea></td>
                 <td><font color="red">
-                    <span id="error_coment" class="error">
+                    <span id="error_descripcio" class="error">
                         <?php
-                            echo $error['coment']
+                            echo $error['descripcio']
                         ?>
                     </span>
                 </font></font></td>
             </tr>
             
             <tr>
-                <td><input type="submit" name="create" id="create"/></td>
-                <td align="right"><a href="index.php?page=controller_user&op=list">Volver</a></td>
+                <td><input type="submit" name="update" id="update"/></td>
+                <td align="right"><a href="index.php?page=controller_user&op=list">Tornar</a></td>
             </tr>
         </table>
     </form>
